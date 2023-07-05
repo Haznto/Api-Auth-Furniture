@@ -74,13 +74,13 @@ afterAll(async () => {
         
     });
       it('GET By Id to /rags to create a new rag.', async () => {
-        const res = await req.get('/furniture/rags/1').set('Authorization',`Bearer ${token}`)
+        const res = await req.get('/furniture/rags/1')
         expect(res.status).toBe(200);
         // expect(res.body.type).toBe('test');
         
     });
       it('GET ALL to /rags to create a new rag.', async () => {
-        const res = await req.get('/furniture/rags').set('Authorization',`Bearer ${token}`)
+        const res = await req.get('/furniture/rags')
         expect(res.status).toBe(200);
         expect(Array.isArray(res.body)).toBe(true);
     });
