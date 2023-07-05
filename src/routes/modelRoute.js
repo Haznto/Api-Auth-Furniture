@@ -10,8 +10,8 @@ const modelParam = require('../middleware/modelParam')
 
 router.param('model', modelParam);
 
-router.get('/:model',bearerAuth,handleGetAll);
-router.get('/:model/:id',bearerAuth, handleGetOne);
+router.get('/:model',handleGetAll);
+router.get('/:model/:id',handleGetOne);
 router.post('/:model',bearerAuth,capabilities('create'), handleCreate);
 router.put('/:model/:id',bearerAuth,capabilities('update'), handleUpdate);
 router.delete('/:model/:id',bearerAuth,capabilities('delete'), handleDelete);

@@ -25,6 +25,7 @@ app.use(express.urlencoded({ extended: true })); // recognize the incoming Reque
 app.use(logger);
 
 // Routers
+app.get('/',handleHome)
 app.use(authRouter)
 app.use('/furniture',router)
 
@@ -33,6 +34,12 @@ app.use('/furniture',router)
 app.use(handle404)
 app.use(handle500)
 
+
+function handleHome (req,res) {
+    res.status(200).json({
+        Message: "Welcome to our furniture store"
+    })
+}
 module.exports = {
     app,
     start: (port) => {
