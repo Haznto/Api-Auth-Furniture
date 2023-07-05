@@ -8,6 +8,8 @@ const cors = require('cors')
 const logger = require('./middleware/logger');
 const handle404 = require('./error-handlers/404');
 const handle500 = require('./error-handlers/500');
+const authRouter = require('./routes/auth');
+const router = require('../src/routes/modelRoute')
 
 // initiating the express app
 
@@ -23,7 +25,8 @@ app.use(express.urlencoded({ extended: true })); // recognize the incoming Reque
 app.use(logger);
 
 // Routers
-
+app.use(authRouter)
+app.use('/furniture',router)
 
 //Error handlers 
 
